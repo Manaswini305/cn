@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+
+void main() {
+    char d[50], stuffed[100], destuffed[50], flag[9] = "01111110"; 
+    int i, j, count = 0;
+    int len;
+
+    // Input original data
+    printf("Data: ");
+    scanf("%s", d);
+    len = strlen(d);
+
+    // Begin stuffing: Initialize 'stuffed' with the flag
+    j = 0;
+    strcpy(stuffed, flag); // Copy flag to stuffed
+    j += strlen(flag);
+
+    // Bit stuffing process
+    for (i = 0; i < len; i++) {
+        stuffed[j++] = d[i]; // Add data bit to stuffed
+
+        // Check for consecutive '1's
+        if (d[i] == '1') {
+            count++;
+            if (count == 5) { // After 5 consecutive '1's, add a '0'
+                stuffed[j++] = '0';
+                count = 0; // Reset the count
+            }
+        } else {
+            count = 0; // Reset the count if bit is '0'
+        }
+    }
+
+    // Append the ending flag
+    strcpy(stuffed + j, flag);
+    j += strlen(flag);
+
+    // Null-terminate stuffed string
+    stuffed[j] = '\0';
+
+    // Output the stuffed data
+    printf("Stuffed data: %s\n", stuffed);
+
+    // Begin destuffing process
+    int len1 = strlen(stuffed); // Length of stuffed data including flags
+    count = 0;
+    int k = 0; // Pointer for destuffed data
+
+    // Ignore the flag at the start and end of the stuffed data
+    for (i = 8; i < len1 - 8; i++) {
+        destuffed[k++] = stuffed[i]; // Copy each bit to destuffed
+
+        // Check for consecutive '1's
+        if (stuffed[i] == '1') {
+            count++;
+            if (count == 5) { // If 5 consecutive '1's are found
+                i++; // Skip the next stuffed '0'
+                count = 0; // Reset the count
+            }
+        } else {
+            count = 0; // Reset the count if bit is '0'
+        }
+    }
+
+    // Null-terminate destuffed string
+    destuffed[k] = '\0';
+
+    // Output the destuffed data
+    printf("Destuffed data: %s\n", destuffed);
+}
