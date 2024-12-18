@@ -1,0 +1,12 @@
+Ipconfig
+nmap address
+Nmap -v ipaddress
+Nmap -v scanme.org
+Sudo nmap -o ipads
+Sudo nmap -o scanme.org
+sudo nmap -A ipaddress
+Sudo nmap -A scanme.org
+Nmap -sP ipaddress
+Nmap -sP scanme.org
+Nmap -Pn ipadd
+Nmap -Pn scanme.org
