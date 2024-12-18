@@ -1,0 +1,105 @@
+The provided document outlines a comprehensive set of networking commands and concepts, along with their explanations and uses. Here's a succinct and structured response to help you frame and execute commands effectively:
+
+---
+
+### **Networking Command Questions**
+
+1. **Execute a networking command to change the time interval between ping packets and to change ping packet size.**  
+   **Command:**  
+   - `ping -i <time_in_seconds> <URL/IP_address>`  
+   - `ping -s <packet_size> <URL/IP_address>`  
+
+   **Example:**  
+   - `ping -i 3 www.example.com`  
+   - `ping -s 70 www.example.com`
+
+2. **Execute a networking command to make ping send a set number of packets and print timestamps before each line.**  
+   **Command:**  
+   - `ping -c <number_of_packets> <URL/IP_address>`  
+   - `ping -D <URL/IP_address>`  
+
+   **Example:**  
+   - `ping -c 5 www.example.com`  
+   - `ping -D www.example.com`
+
+3. **Execute a networking command to limit the number of network hops and allow superusers to send 100 or more packets per second.**  
+   **Command:**  
+   - `ping -t <TTL_value> <URL/IP_address>`  
+   - `sudo ping -f <URL/IP_address>`  
+
+   **Example:**  
+   - `ping -t 10 www.example.com`  
+   - `sudo ping -f www.example.com`
+
+4. **Execute a networking command to find the route to a destination and show IP addresses without resolving hostnames.**  
+   **Command:**  
+   - `traceroute <URL/IP_address>`  
+   - `traceroute -n <URL/IP_address>`  
+
+   **Example:**  
+   - `traceroute www.example.com`  
+   - `traceroute -n www.example.com`
+
+5. **Execute a networking command to set response time and find out the IP address of a domain.**  
+   **Command:**  
+   - `traceroute -w <time_in_seconds> <URL/IP_address>`  
+   - `nslookup <domain_name>`  
+
+   **Example:**  
+   - `traceroute -w 1 www.example.com`  
+   - `nslookup www.example.com`
+
+6. **Execute a networking command to find a specific domain lookup and query Name Server (NS) records.**  
+   **Command:**  
+   - `nslookup <domain_name>`  
+   - `nslookup -query=ns <domain_name>`  
+
+   **Example:**  
+   - `nslookup www.example.com`  
+   - `nslookup -query=ns www.example.com`
+
+7. **Execute a networking command to list all active listening TCP and UDP ports.**  
+   **Command:**  
+   - `netstat -lt` (for TCP)  
+   - `netstat -lu` (for UDP)  
+
+   **Example:**  
+   - `netstat -lt`  
+   - `netstat -lu`
+
+8. **Execute a networking command to display ARP entries for a specific address and interface.**  
+   **Command:**  
+   - `arp -a <IP_address>`  
+   - `arp -i <interface_name>`  
+
+   **Example:**  
+   - `arp -a 192.168.0.1`  
+   - `arp -i eth0`
+
+---
+
+### **Theory Summary**
+1. **PING:** Checks connectivity between devices using ICMP packets.  
+   - Options for interval, packet size, count, timestamp, TTL, etc.
+
+2. **Traceroute:** Tracks the path of packets to a destination, useful for debugging network issues.  
+   - Options include disabling hostname resolution, setting timeout, and customizing hop queries.
+
+3. **Telnet:** Enables terminal connections to remote systems, useful for testing remote port connectivity.
+
+4. **Nslookup:** Queries DNS to resolve domain names to IPs or retrieve specific DNS records like MX, NS, etc.
+
+5. **Netstat:** Monitors network connections, routing tables, and active ports.  
+   - Includes filters for TCP/UDP and active listening ports.
+
+6. **ARP:** Manages and displays the ARP table, mapping IP addresses to MAC addresses.  
+   - Options include filtering by address or interface.
+
+7. **RARP:** Resolves MAC addresses to IP addresses, often used in reverse scenarios.
+
+### **Procedure Highlights**
+- Experiment with each command in a Linux terminal or Windows Command Prompt.  
+- Modify parameters to observe different outputs and functionalities.  
+- Ensure administrative privileges for commands like `sudo ping` or `arp`.
+
+Let me know if you need further clarification or specific command implementations!
