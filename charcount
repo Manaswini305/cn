@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<string.h>
+void main(){
+    int n,i,j,l,k,total;
+    total=k=0;
+    char str[100];
+    printf("Enter the string");
+    scanf("%s",str);
+    printf("enter nno of frames:");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        printf("enter frame %d count:",i+1);
+        scanf("%d",&l);
+        for(j=0;j<l;j++){
+            printf("%c",str[k]);
+            k++;
+        }
+        total+=l;
+        printf("\n");
+        
+    }
+    if(strlen(str)!=total)
+    printf("count doesnot match");
+}
