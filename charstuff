@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+void main(){
+char mainstr[50], substr[30];
+char prefix[6]={'d','l','e','s','t','x'}, suffix[6] = {'d','l','e','s','t','x'};
+int pos;
+printf("Enter the mainstr: ");
+gets(mainstr);
+printf("Enter the substr: ");
+gets(substr);
+printf("Enter the pos: ");
+scanf("%d",&pos);
+int mainlen = strlen(mainstr);
+int sublen = strlen(substr);
+for(int i=mainlen+sublen-1, j=mainlen-1; j>=pos; i--,j--){
+mainstr[i] = mainstr[j];
+}
+for(int i = pos, j =0; j<sublen; i++,j++){
+mainstr[i] = substr[j];
+}
+printf("After stuffing: \n");
+for(int i=0;i<6;i++){
+printf("%c",prefix[i]);
+}
+for(int i=0;i<mainlen+sublen;i++){
+printf("%c", mainstr[i]);
+}
+for(int i=0;i<6;i++){
+printf("%c",suffix[i]);
+}
+printf("\n");
+printf("After de-stuffing: \n");
+for(int i=pos, j=pos+sublen;i<mainlen+sublen-1;i++,j++){
+mainstr[i] = mainstr[j];
+}
+for(int i=0;i<mainlen;i++){
+printf("%c",mainstr[i]);
+}
+printf("\n");
+}
